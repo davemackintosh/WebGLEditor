@@ -10,32 +10,11 @@
 
 @implementation WGLAppDelegate
 
-@synthesize window=_window;
+@synthesize window;
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-  self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
-  
-//  Class ADWebView = NSClassFromString(@"ADWebView");
-//  UIWebView* webView = (UIWebView *)[[[ADWebView alloc] initWithFrame:self.window.bounds] autorelease];
-//  [webView setWebGLEnabled:YES];
-    
-  UIWebView* webView = [[[UIWebView alloc] initWithFrame:self.window.bounds] autorelease];
-  
-  id webDocumentView = [webView performSelector:@selector(_browserView)];
-  id backingWebView = [webDocumentView performSelector:@selector(webView)];
-  [backingWebView _setWebGLEnabled:YES];
-  
-  NSString* htmlPath = [[NSBundle mainBundle] pathForResource:@"WebGL" ofType:@"html"];
-  NSURLRequest* request = [NSURLRequest requestWithURL:[NSURL fileURLWithPath:htmlPath]];
-  [webView loadRequest:request];
-  
-  UIViewController* viewController = [[[UIViewController alloc] init] autorelease];
-  viewController.view = webView;
-  
-  self.window.rootViewController = viewController;
-  [self.window makeKeyAndVisible];
-  
-  return YES;
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+    return YES;
 }
 
 @end
