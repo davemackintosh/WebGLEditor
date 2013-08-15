@@ -31,13 +31,14 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 2" id="gwd-YK-a5W"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="editor" destination="fGq-J0-kbe" id="krE-dT-OnF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k45-yP-zk0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-279" y="-276"/>
+            <point key="canvasLocation" x="-273" y="-190"/>
         </scene>
         <!--WebGL View Controller - Item 1-->
         <scene sceneID="pnu-Jl-tl3">
@@ -72,7 +73,7 @@
         <scene sceneID="1Ke-r3-Gwn">
             <objects>
                 <tabBarController definesPresentationContext="YES" id="NoQ-fb-zun" sceneMemberID="viewController">
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="soN-Uy-Dl0">
                         <rect key="frame" x="129" y="330" width="163" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
