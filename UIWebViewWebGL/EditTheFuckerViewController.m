@@ -34,16 +34,18 @@
   
   
   editedURL = [[[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject] URLByAppendingPathComponent:@"WebGL.html" isDirectory:NO];
+  
+  // Style the 
+  [editor setFont:[UIFont fontWithName:@"Courier" size:11]];
+  [editor setAutocorrectionType:UITextAutocorrectionTypeNo];
+  [editor setAutocapitalizationType:UITextAutocapitalizationTypeNone];
+  editor.backgroundColor = [UIColor colorWithRed:0.075 green:0.075 blue:0.075 alpha:1];
+  editor.textColor = [UIColor colorWithWhite:1 alpha:1];
+  
   if ([[NSFileManager defaultManager] fileExistsAtPath:editedURL.path isDirectory:NULL]) {
-    [editor setFont:[UIFont fontWithName:@"Courier" size:10]];
-    [editor setAutocorrectionType:UITextAutocorrectionTypeNo];
-    [editor setAutocapitalizationType:UITextAutocapitalizationTypeNone];
     editor.text = [NSString stringWithContentsOfURL:editedURL encoding:NSUTF8StringEncoding error:NULL];
   } else {
     NSURL* defaultURL = [[NSBundle mainBundle] URLForResource:@"WebGL" withExtension:@"html"];
-    [editor setFont:[UIFont fontWithName:@"Courier" size:10]];
-    [editor setAutocorrectionType:UITextAutocorrectionTypeNo];
-    [editor setAutocapitalizationType:UITextAutocapitalizationTypeNone];
     editor.text = [NSString stringWithContentsOfURL:defaultURL encoding:NSUTF8StringEncoding error:NULL];
   }
 }
@@ -56,7 +58,7 @@
 - (void)keyboardWasShown:(NSNotification*)notification {
   NSDictionary* info = [notification userInfo];
   CGSize keyboardSize = [[info objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size;
-  self.editor.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - keyboardSize.height);
+  self.editor.frame = CGRectMake(0, 0, self.view.frame.size.width, (self.view.frame.size.height - keyboardSize.height) + 45);
 }
 
 - (void)keyboardWillBeHidden:(NSNotification*)notification {
