@@ -58,7 +58,7 @@
 - (void)keyboardWasShown:(NSNotification*)notification {
   NSDictionary* info = [notification userInfo];
   CGSize keyboardSize = [[info objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size;
-  self.editor.frame = CGRectMake(0, 0, self.view.frame.size.width, (self.view.frame.size.height - keyboardSize.height) + 45);
+  self.editor.frame = CGRectMake(0, 0, self.view.frame.size.width, (self.view.frame.size.height - keyboardSize.height) + 50);
 }
 
 - (void)keyboardWillBeHidden:(NSNotification*)notification {
