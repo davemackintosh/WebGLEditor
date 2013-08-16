@@ -5,13 +5,14 @@
 			body {
 				margin: 0px;
 				padding: 0px;
-				background: #000 url(http://imgsrc.hubblesite.org/hu/db/images/hs-2010-19-b-full_jpg.jpg);
+				background: #000;
 				-webkit-background-size: cover;
 			}
 		</style>
 	</head>
 	<body>
-		<script src="http://www.html5canvastutorials.com/libraries/three.min.js"></script>
+		<!--<script src="http://www.html5canvastutorials.com/libraries/three.min.js"></script>-->
+	        <script src="js/THREE.js"></script>
 		<script>
 			var mouseDown = 0, camera, renderer, onMouseDownPosition, radious = 500, sphere;
 
@@ -53,24 +54,25 @@
 			renderer.render(scene, camera);
 
 
-			document.addEventListener('mousedown', function (e) {
+			document.addEventListener('touchstart', function (e) {
 				mouseDown = 1;
+
 				onMouseDownPosition = {
-					x: e.clientX,
-					y: e.clientY
+					x: e.pageX,
+					y: e.pageY
 				}
 			}, true);
 
-			document.addEventListener('mouseup', function () {
+			document.addEventListener('touchend', function () {
 				mouseDown = 0;
 			}, false);
 
-			document.addEventListener('mousemove', function (event) {
+			document.addEventListener('touchmove', function (event) {
 				event.preventDefault();
 
 				if (mouseDown) {
-					theta = -((event.clientX - onMouseDownPosition.x) * .5) + 45;
-					phi = ((event.clientY - onMouseDownPosition.y) * .5) + 60;
+					theta = -((event.changedTouches[0].clientX - onMouseDownPosition.x) * .5) + 45;
+					phi = ((event.changedTouches[0].clientY - onMouseDownPosition.y) * .5) + 60;
 
 					phi = Math.min(180, Math.max(0, phi));
 
